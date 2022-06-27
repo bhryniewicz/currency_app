@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Currencies } from "./components/Currencies/Currencies";
+import { ChangeCurrency } from "./components/ChangeCurrency/ChangeCurrency";
+import { Header } from "./components/Header/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CheckDate } from "./components/CheckDate/CheckDate";
+import { SelectCurrency } from "./components/Select/Select";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Currencies />} />
+          <Route path="/change" element={<ChangeCurrency />} />
+          <Route path="/check" element={<CheckDate />} />
+          <Route path="/select" element={<SelectCurrency />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
